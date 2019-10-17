@@ -71,7 +71,7 @@ public class Bibliotheque {
              */
             switch (choix) {
                 case 1:
-                    this.showSearchResult(this.globaSearch(this.asKeyword()));
+                    this.runRecherche();
                     break;
                 case 2:
                     this.enregistrerLivre(this.creationLivre());
@@ -90,6 +90,90 @@ public class Bibliotheque {
         }
     }
 
+        public void runRecherche() {
+        Scanner sc = new Scanner(System.in);
+        boolean continuer = true;
+        int choix;
+        while (continuer) {
+            System.out.println("\nRechercher un livre :\n");
+            System.out.println("1. Tout critère confondus");
+            System.out.println("2. Critère unique");
+            System.out.println("3. Retour Menu Principal");
+            System.out.println("\nQuel est votre choix ?");
+            choix = sc.nextInt();
+            switch (choix) {
+                case 1:
+                    this.showSearchResult(this.globaSearch(this.asKeyword()));
+                    break;
+                case 2:
+                    this.runRechercheUnik();
+                    break;
+                case 3:
+                    this.runBibliotheque();
+                    break;
+                default:
+                    System.out.println("C'est pas faux !");
+                    break;
+            }
+        }
+    }
+        
+        public void runRechercheUnik() {
+        Scanner sc = new Scanner(System.in);
+        boolean continuer = true;
+        int choix;
+        while (continuer) {
+            System.out.println("\nRechercher un livre : Critère unique\n");
+            System.out.println("1. Titre");
+            System.out.println("2. Auteur");
+            System.out.println("3. Référence");
+            System.out.println("4. Nombre de Pages");
+            System.out.println("5. Edition");
+            System.out.println("6. Genre");
+            System.out.println("7. Année d'édition");
+            System.out.println("8. Langue");
+            System.out.println("9. Format");
+            System.out.println("0. Retour Menu Principal");
+            System.out.println("\nQuel est votre choix ?");
+            choix = sc.nextInt();
+            switch (choix) {
+                case 1:
+                    this.showSearchResult(this.critTitre(this.asKeyword()));
+                    break;
+                case 2:
+                    this.showSearchResult(this.critAuteur(this.asKeyword()));
+                    break;
+                case 3:
+                    this.showSearchResult(this.critRef(this.asKeyword()));
+                    break;
+                case 4:
+                    this.showSearchResult(this.critNbrePages(this.asKeyword()));
+                    break;
+                case 5:
+                    this.showSearchResult(this.critEdition(this.asKeyword()));
+                    break;
+                case 6:
+                    this.showSearchResult(this.critGenre(this.asKeyword()));
+                    break;
+                case 7:
+                    this.showSearchResult(this.critAnneeEdition(this.asKeyword()));
+                    break;
+                case 8:
+                    this.showSearchResult(this.critLangue(this.asKeyword()));
+                    break;
+                case 9:
+                    this.showSearchResult(this.critFormat(this.asKeyword()));
+                    break;
+                case 0:
+                    this.runBibliotheque();
+                    break;
+                default:
+                    System.out.println("C'est pas faux !");
+                    break;
+            }
+        }
+    }
+    
     /**
      * Méthode de recherche globale (tout attribut) à partir d'un mot-clé. Elle
      * va créer une liste des livres qui peuvent correspondre à la recherche et
@@ -140,7 +224,143 @@ public class Bibliotheque {
         }//Sortie de la boucle for
         return resultatDeRecherche;
     }
-
+    public ArrayList<Livre> critTitre(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getTitre(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }
+    
+        public ArrayList<Livre> critAuteur(String recherche) {
+         ArrayList<Livre> resultatDeRecherche = new ArrayList();
+         for (Livre livre : listeLivres) {
+            boolean ajout;
+            if  (this.verifContainStr(livre.getAuteur(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+         return resultatDeRecherche;
+    }
+        
+    public ArrayList<Livre> critRef(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getRef(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }
+    public ArrayList<Livre> critNbrePages(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getRef(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }        
+    public ArrayList<Livre> critEdition(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getEdition(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }
+    public ArrayList<Livre> critGenre(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getGenre(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }
+    public ArrayList<Livre> critAnneeEdition(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getAnneeEdition(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }
+    public ArrayList<Livre> critLangue(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getLangue(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }        
+    public ArrayList<Livre> critFormat(String recherche) {
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        for (Livre livre : listeLivres) {
+            boolean ajout/* = false*/;
+            if (this.verifContainStr(livre.getFormat(), recherche)) {
+                ajout = true;
+            } else {
+                ajout = false;
+            }
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }
+        return resultatDeRecherche;
+    }        
     /**
      * Méthode pour demander un mot-clé et le retourner
      */
