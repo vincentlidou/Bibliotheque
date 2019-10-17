@@ -65,7 +65,7 @@ public class Bibliotheque {
 //        Scanner sc = new Scanner(system.in);
 //        String recherche = sc.nextLine();
 //        String(recherche).CASE_INSENSITIVE_ORDER.contains();
-//    }
+//    } 
 
     public void afficherConsoleListeLivre() {
         for (int i = 0; i < listeLivres.size(); i++) {
