@@ -14,7 +14,7 @@ package bibliotheque;
 Cette classe nous servira à créer des objets de type "Livre", ils devront représenter
 des livres physiques ou virtuels et donc posséder les attributs permettant de les définir.
 */
-public class Livre {
+public class Livre implements Oeuvres {
 
     /*
     La liste des attributs. Ce sont des variables qui ont une "durée de vie" longue.
@@ -190,10 +190,10 @@ public class Livre {
     }
 
     /*
-    Nous souhaitons pouvoir afficher un apperçu des informations du livre, cette
+    Nous souhaitons pouvoir afficher un aperçu des informations du livre, cette
     méthode nous le permet.
     */
-    public void afficherLivre() {
+    public void afficher() {
         System.out.println("Titre : " + this.titre);
         System.out.println("Auteur : " + this.auteur);
         System.out.println("Année d'édition : " + this.anneeEdition);
@@ -217,6 +217,6 @@ public class Livre {
 
         Livre livreTest = new Livre(titre, auteur, ref, nbrePages, edition, genre, anneeEdition, langue, format);
 
-        livreTest.afficherLivre();
+        livreTest.afficher();
     }
 }

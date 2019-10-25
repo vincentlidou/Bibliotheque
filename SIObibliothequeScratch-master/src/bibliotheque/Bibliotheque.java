@@ -19,7 +19,7 @@ associés donc :
  */
 public class Bibliotheque {
 
-    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+ /*   public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
@@ -36,7 +36,7 @@ public class Bibliotheque {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+    public static final String ANSI_WHITE = "\u001B[37m";*/
     /**
      * Notre bibliothèque contient des livres, on va donc avoir besoin d'un
      * attribut où les ranger.
@@ -71,7 +71,7 @@ public class Bibliotheque {
             /*
             Le "menu"
              */
-            System.out.println("--\n" + ANSI_GREEN_BACKGROUND + "Choisissez une option :\n");
+            System.out.println("--\n" + "\u001B[42m" + "Choisissez une option :\n");
             System.out.println("1. Rechercher un livre");
             System.out.println("2. Enregistrer un livre");
             System.out.println("3. Afficher tous les livres");
@@ -187,7 +187,7 @@ public class Bibliotheque {
         System.out.println("--\nRésultat de la recherche :\n--");
         for (int i = 0; i < liste.size(); i++) {
             System.out.println((i + 1) + ". --");
-            liste.get(i).afficherLivre();
+            liste.get(i).afficher();
             System.out.println("--------");
         }
     }
@@ -200,7 +200,7 @@ public class Bibliotheque {
         System.out.println("--------");
         for (int i = 0; i < listeLivres.size(); i++) {
             System.out.println((i + 1) + ". --");
-            listeLivres.get(i).afficherLivre();
+            listeLivres.get(i).afficher();
             System.out.println("--------");
         }
     }
@@ -214,7 +214,7 @@ public class Bibliotheque {
         System.out.println("--------");
         for (Livre livre : listeLivres) {
             System.out.println(i + ". --");
-            livre.afficherLivre();
+            livre.afficher();
             System.out.println("--------");
             i++;
         }
