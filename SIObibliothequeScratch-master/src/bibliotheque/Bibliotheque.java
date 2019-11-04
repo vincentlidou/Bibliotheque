@@ -19,7 +19,7 @@ associés donc :
  */
 public class Bibliotheque {
 
- /*   public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+    /*   public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
@@ -259,6 +259,24 @@ public class Bibliotheque {
         return livre;
     }
 
+    /**
+     *
+     * @param titre
+     * @param auteur
+     * @param ref
+     * @param nbrePages
+     * @param edition
+     * @param genre
+     * @param anneeEdition
+     * @param langue
+     * @param format
+     * @return
+     */
+    public Livre creationLivre(String titre, String auteur, String ref, String nbrePages, String edition, String genre, String anneeEdition, String langue, String format) {
+        Livre livre = new Livre(titre, auteur, ref, nbrePages, edition, genre, anneeEdition, langue, format);
+        return livre;
+    }
+
     private void searchChoices() {
         Scanner sc = new Scanner(System.in);
         System.out.println("--\nVoulez-vous :");
@@ -364,4 +382,3 @@ public class Bibliotheque {
     }
 
 }
-

@@ -5,11 +5,16 @@
  */
 package IHM;
 
+import bibliotheque.App;
+import javax.swing.JTable;
+
 /**
  *
  * @author admin
  */
 public class JFrameBibliotheque extends javax.swing.JFrame {
+
+    public App app;
 
     /**
      * Creates new form JFrameBibliotheque
@@ -34,9 +39,12 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         jLabelBibliotheque = new javax.swing.JLabel();
         jLabelSelection = new javax.swing.JLabel();
         jButtonAjouter = new javax.swing.JButton();
+        jButtonAfficher = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jTableSelection.setForeground(new java.awt.Color(0, 204, 204));
         jTableSelection.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null}
@@ -53,8 +61,10 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTableSelection.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(jTableSelection);
 
+        jTableBibliotheque.setBackground(new java.awt.Color(0, 204, 204));
         jTableBibliotheque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
@@ -81,6 +91,9 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableBibliotheque.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTableBibliotheque.setRowSelectionAllowed(false);
+        jTableBibliotheque.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(jTableBibliotheque);
 
         jLabelBibliotheque.setText("Bibliothèque");
@@ -88,9 +101,18 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         jLabelSelection.setText("Sélection");
 
         jButtonAjouter.setText("Ajouter");
+        jButtonAjouter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonAjouter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAjouterActionPerformed(evt);
+            }
+        });
+
+        jButtonAfficher.setText("Afficher");
+        jButtonAfficher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAfficher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAfficherActionPerformed(evt);
             }
         });
 
@@ -107,6 +129,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAfficher)
                     .addComponent(jButtonAjouter)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -119,21 +142,27 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
                 .addComponent(jLabelBibliotheque)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAfficher)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabelSelection)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonAjouter)
-                .addGap(119, 119, 119))
+                .addGap(138, 138, 138))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAjouterActionPerformed
-        // TODO add your handling code here:
+        this.app.ajouterLivreIHM();        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAjouterActionPerformed
+
+    private void jButtonAfficherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAfficherActionPerformed
+        this.app.afficherListeIHM();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAfficherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +200,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAfficher;
     private javax.swing.JButton jButtonAjouter;
     private javax.swing.JLabel jLabelBibliotheque;
     private javax.swing.JLabel jLabelSelection;
@@ -179,4 +209,12 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     private javax.swing.JTable jTableBibliotheque;
     private javax.swing.JTable jTableSelection;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getjTableSelection() {
+        return jTableSelection;
+    }
+    
+     public JTable getjTableBibliotheque() {
+        return jTableBibliotheque;
+    }
 }
