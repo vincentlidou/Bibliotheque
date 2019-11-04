@@ -6,7 +6,6 @@
 package IHM;
 
 import bibliotheque.App;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -205,7 +204,17 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAjouterActionPerformed
-        this.app.ajouterLivreIHM();        // TODO add your handling code here:
+        this.app.ajouterLivreIHM();
+        this.jTableSelection.setValueAt("", 0, 0);
+        this.jTableSelection.setValueAt("", 0, 1);
+        this.jTableSelection.setValueAt("", 0, 2);
+        this.jTableSelection.setValueAt("", 0, 3);
+        this.jTableSelection.setValueAt("", 0, 4);
+        this.jTableSelection.setValueAt("", 0, 5);
+        this.jTableSelection.setValueAt("", 0, 6);
+        this.jTableSelection.setValueAt("", 0, 7);
+        this.jTableSelection.setValueAt("", 0, 8);
+        this.jTableSelection.setValueAt("", 0, 9);// TODO add your handling code here:
     }//GEN-LAST:event_jButtonAjouterActionPerformed
 
     private void jButtonAfficherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAfficherActionPerformed
