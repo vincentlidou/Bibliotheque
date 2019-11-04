@@ -6,7 +6,10 @@
 package IHM;
 
 import bibliotheque.App;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -40,6 +43,10 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         jLabelSelection = new javax.swing.JLabel();
         jButtonAjouter = new javax.swing.JButton();
         jButtonAfficher = new javax.swing.JButton();
+        jComboBoxRechercher = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldBarreRecherche = new javax.swing.JTextField();
+        jButtonRechercher = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -98,7 +105,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
 
         jLabelBibliotheque.setText("Bibliothèque");
 
-        jLabelSelection.setText("Sélection");
+        jLabelSelection.setText("Ajouter un livre");
 
         jButtonAjouter.setText("Ajouter");
         jButtonAjouter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -116,41 +123,82 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxRechercher.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tout Critère", "Titre", "Auteur", "Ref", "Pages", "Edition", "Genre", "Année Ed.", "Langue", "Format" }));
+        jComboBoxRechercher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBoxRechercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRechercherActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Rechercher");
+
+        jTextFieldBarreRecherche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldBarreRechercheActionPerformed(evt);
+            }
+        });
+
+        jButtonRechercher.setText("Rechercher");
+        jButtonRechercher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRechercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRechercherActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelSelection)
-                    .addComponent(jLabelBibliotheque))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonAfficher)
-                    .addComponent(jButtonAjouter)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonAjouter)
+                            .addComponent(jButtonAfficher)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelBibliotheque)
+                                .addComponent(jLabel1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(12, 12, 12)
+                                    .addComponent(jComboBoxRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldBarreRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabelSelection))
+                            .addComponent(jButtonRechercher))))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(jLabelBibliotheque)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonAfficher)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAfficher)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBarreRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRechercher)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(jLabelSelection)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAjouter)
-                .addGap(138, 138, 138))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -163,6 +211,26 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     private void jButtonAfficherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAfficherActionPerformed
         this.app.afficherListeIHM();        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAfficherActionPerformed
+
+    private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
+        this.app.searchIHM(this.getjTextFieldBarreRecherche().getText(), this.getjComboBoxRechercher().getSelectedIndex()); // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRechercherActionPerformed
+
+    private void jComboBoxRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRechercherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxRechercherActionPerformed
+
+    private void jTextFieldBarreRechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBarreRechercheActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldBarreRechercheActionPerformed
+
+    public JTextField getjTextFieldBarreRecherche() {
+        return jTextFieldBarreRecherche;
+    }
+
+    public JComboBox<String> getjComboBoxRechercher() {
+        return jComboBoxRechercher;
+    }
 
     /**
      * @param args the command line arguments
@@ -202,19 +270,23 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAfficher;
     private javax.swing.JButton jButtonAjouter;
+    private javax.swing.JButton jButtonRechercher;
+    private javax.swing.JComboBox<String> jComboBoxRechercher;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelBibliotheque;
     private javax.swing.JLabel jLabelSelection;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableBibliotheque;
     private javax.swing.JTable jTableSelection;
+    private javax.swing.JTextField jTextFieldBarreRecherche;
     // End of variables declaration//GEN-END:variables
 
     public JTable getjTableSelection() {
         return jTableSelection;
     }
-    
-     public JTable getjTableBibliotheque() {
+
+    public JTable getjTableBibliotheque() {
         return jTableBibliotheque;
     }
 }

@@ -381,4 +381,48 @@ public class Bibliotheque {
         System.out.println(biblioTest.verifContainStr("Bonjour", "bn"));
     }
 
+    public ArrayList<Livre> uniSearch(String recherche, int critere) {
+        //Préparation de la liste de résultats
+        ArrayList<Livre> resultatDeRecherche = new ArrayList();
+        //Boucle sur la liste de livres complète
+        for (Livre livre : listeLivres) {
+            //Creation (et initialisation éventuelle) du boolean gérant l'ajout
+            boolean ajout/* = false*/;
+            //Liste de vérifications
+            if (this.verifContainStr(livre.getTitre(), recherche) && critere == 0) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getTitre(), recherche) && critere == 1) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getAuteur(), recherche) && critere == 2) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getRef(), recherche) && critere == 3) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getNbrePages(), recherche) && critere == 4) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getEdition(), recherche) && critere == 5) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getGenre(), recherche) && critere == 6) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getAnneeEdition(), recherche) && critere == 7) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getLangue(), recherche) && critere == 8) {
+                ajout = true;
+            } else if (this.verifContainStr(livre.getFormat(), recherche) && critere == 9) {
+                ajout = true;
+            } else {
+                /*
+                Pour être "sûr" on refixe le booleen déterminant l'ajout à 
+                false dans le cas ou rien ne convient. Si le boolean est initialisé
+                à false, cette partie est redondante.
+                 */
+                ajout = false;
+            }
+            //ajout à la liste de résultats conditionnel à chaque itération
+            if (ajout) {
+                resultatDeRecherche.add(livre);
+            }
+        }//Sortie de la boucle for
+        return resultatDeRecherche;
+    }
+
 }
