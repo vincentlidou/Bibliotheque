@@ -78,52 +78,6 @@ public class App {
         }
     }
 
-//    private ArrayList<Livre> uniSearch(String recherche, int critere) {
-//        //Préparation de la liste de résultats
-//        ArrayList<Livre> resultatDeRecherche = new ArrayList();
-//        //Préparation du critère de choix
-//        critere = jFrameBiblio.getjComboBoxRechercher().getSelectedIndex();
-//        //Boucle sur la liste de livres complète
-//        for (Livre livre : biblio.listeLivres) {
-//            //Creation (et initialisation éventuelle) du boolean gérant l'ajout
-//            boolean ajout/* = false*/;
-//            //Liste de vérifications
-//            if (this.biblio.verifContainStr(livre.getTitre(), recherche) && critere == 0) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getTitre(), recherche) && critere == 1) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getAuteur(), recherche) && critere == 2) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getRef(), recherche) && critere == 3) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getNbrePages(), recherche) && critere == 4) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getEdition(), recherche) && critere == 5) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getGenre(), recherche) && critere == 6) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getAnneeEdition(), recherche) && critere == 7) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getLangue(), recherche) && critere == 8) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getFormat(), recherche) && critere == 9) {
-//                ajout = true;
-//            } else {
-//                /*
-//                Pour être "sûr" on refixe le booleen déterminant l'ajout à 
-//                false dans le cas ou rien ne convient. Si le boolean est initialisé
-//                à false, cette partie est redondante.
-//                 */
-//                ajout = false;
-//            }
-//            //ajout à la liste de résultats conditionnel à chaque itération
-//            if (ajout) {
-//                resultatDeRecherche.add(livre);
-//            }
-//        }//Sortie de la boucle for
-//        return resultatDeRecherche;
-//    }
-
     public void searchIHM(String text, int selectedIndex) {
         if (selectedIndex == 0) {
             this.afficherListeIHM(this.biblio.globaSearch(text));
@@ -131,47 +85,4 @@ public class App {
             this.afficherListeIHM(this.biblio.uniSearch(text, selectedIndex));
         }
     }
-
-//    public ArrayList<Livre> globaSearch(String recherche) {
-//        //Préparation de la liste de résultats
-//        ArrayList<Livre> resultatDeRecherche = new ArrayList();
-//        //Boucle sur la liste de livres complète
-//        for (Livre livre : biblio.listeLivres) {
-//            //Creation (et initialisation éventuelle) du boolean gérant l'ajout
-//            boolean ajout/* = false*/;
-//            //Liste de vérifications
-//            if (this.biblio.verifContainStr(livre.getTitre(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getAuteur(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getRef(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getNbrePages(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getEdition(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getGenre(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getAnneeEdition(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getLangue(), recherche)) {
-//                ajout = true;
-//            } else if (this.biblio.verifContainStr(livre.getFormat(), recherche)) {
-//                ajout = true;
-//            } else {
-//                /*
-//                Pour être "sûr" on refixe le booleen déterminant l'ajout à 
-//                false dans le cas ou rien ne convient. Si le boolean est initialisé
-//                à false, cette partie est redondante.
-//                 */
-//                ajout = false;
-//            }
-//            //ajout à la liste de résultats conditionnel à chaque itération
-//            if (ajout) {
-//                resultatDeRecherche.add(livre);
-//            }
-//        }//Sortie de la boucle for
-//        return resultatDeRecherche;
-//    }
-
 }
