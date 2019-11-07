@@ -214,7 +214,7 @@ public class JFrameBibliotheque extends javax.swing.JFrame {
         this.jTableSelection.setValueAt("", 0, 6);
         this.jTableSelection.setValueAt("", 0, 7);
         this.jTableSelection.setValueAt("", 0, 8);
-        this.jTableSelection.setValueAt("", 0, 9);// TODO add your handling code here:
+        this.jTableSelection.setValueAt("", 0, 9);
     }//GEN-LAST:event_jButtonAjouterActionPerformed
 
     private void jButtonAfficherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAfficherActionPerformed

@@ -119,4 +119,5 @@ public final class CParametresStockageBDD {
             System.out.println("Erreur de chargement des paramètres BDD");
         }
     }
+
 }

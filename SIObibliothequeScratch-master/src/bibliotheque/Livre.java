@@ -5,6 +5,8 @@
  */
 package bibliotheque;
 
+import bibliotheque.Oeuvres;
+
 /**
  *
  * @author Damien
